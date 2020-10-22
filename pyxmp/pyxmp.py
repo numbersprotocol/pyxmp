@@ -13,7 +13,7 @@ def read(img_bytes: bytes):
     xmp_dict = {}
     for key in meta.xmp_keys:
         xmp_dict[key] = meta[key].raw_value
-
+    pyexiv2.xmp.closeXmpParser()
     return xmp_dict
 
 
@@ -40,6 +40,7 @@ def inject(
         xmp_key = '.'.join([key_prefix, provider, name])
         meta[xmp_key] = info['value']
         meta.write()
+    pyexiv2.xmp.closeXmpParser()
     return meta.buffer
 
 
