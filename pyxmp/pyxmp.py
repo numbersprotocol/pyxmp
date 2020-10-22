@@ -1,12 +1,14 @@
+import logging
+
 import pyexiv2
 
 
+logger = logging.getLogger(__name__)
+
+
 def read(img_bytes: bytes):
-    try:
-        meta = pyexiv2.ImageMetadata.from_buffer(img_bytes)
-        meta.read()
-    except OSError:
-        raise
+    meta = pyexiv2.ImageMetadata.from_buffer(img_bytes)
+    meta.read()
 
     xmp_dict = {}
     for key in meta.xmp_keys:
@@ -26,7 +28,9 @@ def inject(
 
     try:
         pyexiv2.xmp.register_namespace(namespace_name, namespace_prefix)
-    except KeyError:
+    except KeyError as e:
+        logger.warning(e)
+    except ValueError:
         raise
 
     for info in metadata:
