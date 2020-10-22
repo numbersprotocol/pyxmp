@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyxmp',
-    version='0.1.0',
+    version='0.1.1',
     description='A Python XMP metadata injection tool based on py3exiv2.',
     url='https://github.com/numbersprotocol/pyxmp',
     author='Numbersprotocol',
