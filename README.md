@@ -4,7 +4,7 @@ A Python XMP metadata injection tool based on py3exiv2
 ## Installation
 
 ```
-python -m pip install git+https://github.com/numbersprotocol/pyxmp.git#egg=pyxmp
+python -m pip install pyxmp
 ```
 
 ## Usage
