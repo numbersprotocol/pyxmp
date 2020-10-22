@@ -50,17 +50,22 @@ Then the metadata could be injected like the following example:
 
 
 ```
-from pyxmp import pyxmp
+import pyxmp
 
 metadata = {...} # Prepare the metadata like the above example
 
-xmp_injected_image = pyxmp.inject(original_image_bytes, metadata, 'http://numbersprotocol.io/xmp/', 'examplePrefix')
+xmp_injected_image = pyxmp.inject(
+    original_image_bytes,
+    metadata,
+    'http://numbersprotocol.io/xmp/',
+    'examplePrefix'
+)
 ```
 
 To read the XMP metadata into a dict:
 
 ```
-from pyxmp import pyxmp
+import pyxmp
 
 metadata_dict = pyxmp.read(xmp_injected_image)
 ```
